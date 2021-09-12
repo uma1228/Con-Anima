@@ -20,13 +20,13 @@ with open('Lyrics_TaylorSwift.json') as f:
   lyricList = lyrics.split('\n')  # comparison song lyrics
 
 ## the parts from the user 
-mySong = "I'm so happy I love making music \n It's so cool and fun\n I never miss a beat \n I'm lightning on my feet "
-writtenLins = mySong.split("\n")
+#mySong = "I'm so happy I love making music \n It's so cool and fun\n I never miss a beat \n I'm lightning on my feet "
+#writtenLins = mySong.split("\n")
 
 def checkPlag(userWritten):
     lineCount = 0
     message = ""
-    for line in writtenLines:
+    for line in userWritten:
         lineCount += 1
         for ogLine in lyricList:
             compLyrics = nlp(line)
@@ -35,9 +35,6 @@ def checkPlag(userWritten):
             if similarity > 0.8:
                 message+=("FLAGGED: Line "+ line+ " has a similarity score that may be too high")
                 #message+=("The line is similar to lyrics from "+ song+ " by "+ artist)
-
-
-
    
     return message
 

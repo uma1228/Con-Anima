@@ -1,4 +1,5 @@
 from flask import Flask, request
+import plagiarismCheck 
  
 # Flask constructor takes the name of
 # current module (__name__) as argument.
@@ -13,7 +14,12 @@ def hello_world():
     return 'Hello World'
 @app.route('/plagiarism')
 def plagCheck():
-    return request.args.get("lyrics","").upper()
+    #print("starting plagCheck")
+    lyrics = request.args.get("lyrics","")
+    #print(lyrics)
+    toReturn = plagiarismCheck.checkPlag(lyrics)
+    #print(toReturn)
+    return toReturn
 
 
 # main driver function
